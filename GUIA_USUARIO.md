@@ -13,13 +13,13 @@ Antes de iniciar a configuração, garante que tens as seguintes ferramentas ins
 
 ---
 
-## 2. Como Baixar o Projeto
+## 2. Como baixar o projeto
 
 Abra o seu terminal (ou linha de comandos) e execute os seguintes comandos para clonar este repositório e entrar na pasta do projeto:
 
 ```bash
-git clone [https://github.com/eugeniojonatas/Radar-Cidadao-Froggrammers.git](https://github.com/eugeniojonatas/Radar-Cidadao-Froggrammers.git)
-cd Radar-Cidadao-Froggrammers
+git clone [https://github.com/daviespedro/dockercompose-radar.git](https://github.com/daviespedro/dockercompose-radar.git)
+cd dockercompose-radar
 
 ## 3. Como instalar o projeto e Como configurar o arquivo .env
 O sistema precisa das suas credenciais para se conectar ao banco de dados MySQL.
