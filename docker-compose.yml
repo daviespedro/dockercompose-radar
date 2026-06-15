@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  # Serviço do Banco de Dados MySQL
+  db:
+    image: mysql:8.0
+    container_name: radar_cidadao_db
+    restart: always
+    environment:
+      # Usa a sua senha normal também para o root, resolvendo a exigência do MySQL
+      MYSQL_ROOT_PASSWORD: ${mysqlpassword}
+      MYSQL_DATABASE: ${mysqldatabase}
+      MYSQL_USER: ${mysqluser}
+      MYSQL_PASSWORD: ${mysqlpassword}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # Serviço da sua Aplicação Web (Radar Cidadão)
+  app:
+    image: daviespedro/radar-cidadao:latest
+    container_name: radar_cidadao_app
+    restart: always
+    ports:
+      - "${port:-5000}:5000"
+    depends_on:
+      - db
+    environment:
+      MYSQLHOST: db
+      MYSQLUSER: ${mysqluser}
+      MYSQLPASSWORD: ${mysqlpassword}
+      MYSQLDATABASE: ${mysqldatabase}
+      MYSQLPORT: ${mysqlport}
+
+volumes:
+  mysql_data:
